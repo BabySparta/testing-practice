@@ -2,7 +2,7 @@ import capitalize from './capitalize';
 import reverseString from './reverse';
 import calculator from './calculator';
 import cesarCipher from './cesar';
-
+import analyze from './analyze';
 
 
 // Capitalize
@@ -65,3 +65,19 @@ it('spaceCesar', () => {
 })
 
 // Analyze array
+it('basicAnalyze', () => {
+    expect(analyze([1,2,3,4])).toStrictEqual({
+        min: 1,
+        max: 4,
+        average: 3,
+        length: 4
+    })
+})
+
+it('notArrayAnalyze', () => {
+    expect(analyze(2)).toBe('Please input an array')
+})
+
+it('notNumsAnalyze', () => {
+    expect(analyze([2,1,'3'])).toBe('Please input an array with only numbers');
+})
